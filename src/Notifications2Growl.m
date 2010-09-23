@@ -38,6 +38,8 @@
 #import "Notifications2Growl.h"
 #import "notificationdaemon-dbus-glue.h"
 
+#define MY_APP_NAME	XSTR("ObjcServer")
+#define MY_APP_ID	XSTR("N2GR")
 #define MY_NOTIFICATION XSTR("forwarded notification")
 
 // {{{ get icon data
@@ -425,6 +427,10 @@ _action_invoked_cb(NotifyDaemon *daemon, guint id, const char *key)
 	
 		_close_notification(daemon, id, NOTIFYD_CLOSED_USER);
 	}
+	else
+	{
+		g_warning("notification not found for callback");
+	}
 }
 
 static void
@@ -510,6 +516,7 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 	gint i;
 	gchar *sender;
 	gboolean wantsActionCallback = FALSE;
+	GValue* value = NULL;
 	
 	printf("%s: %s\n",app_name,summary);
 	
@@ -521,7 +528,7 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 
 		if (nt == NULL)
 		{
-			g_warning("unknown action id sent by client:%i",replaces_id);
+			g_warning("unknown notification id sent by client:%i",replaces_id);
 			replaces_id = 0;
 		}
 	}
@@ -546,7 +553,7 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 		[dictionary setObject: body_str forKey: GROWL_NOTIFICATION_DESCRIPTION];
 	}
 	
-	// default action handling
+	// {{{ default action handling
 	/* set up action buttons */
 	for (i = 0; actions[i] != NULL; i += 2)
 	{
@@ -563,14 +570,14 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 
 		if (strcasecmp(actions[i], "default"))
 		{
-			printf("GOT A DEFAULT ACTION CALLBACK\n");
-			wantsActionCallback = TRUE;
+			printf("GOT %s ACTION CALLBACK (%s)\n",actions[i],l);
 		}
 		else
 		{
-			printf("GOT A %s ACTION CALLBACK (%s)\n",actions[i],l);
+			printf("GOT A DEFAULT ACTION CALLBACK\n");
+			wantsActionCallback = TRUE;
 		}
-	}
+	}	// }}}
 	
 	// icon handling
 	NSData* imgData = getImageData(icon,hints);
@@ -578,6 +585,49 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 	{
 			[dictionary setObject: imgData forKey: GROWL_NOTIFICATION_ICON];
 	}	
+	
+	// {{{ timeout handling (sets sticky flag for Growl)
+	if(timeout == 0)
+	{
+		NSNumber* num = [NSNumber numberWithInt: YES];
+		[dictionary setObject: [num autorelease] forKey: GROWL_NOTIFICATION_STICKY];
+	}
+	// }}}
+	
+	// {{{ urgency handling
+	value = (GValue *)g_hash_table_lookup(hints, "urgency");
+	if (value)
+	{
+		if(G_VALUE_HOLDS(value, G_TYPE_CHAR))
+		{
+			char urgency = g_value_get_char(value);
+			char growl_urgency = 0;
+			if(urgency == URGENCY_LOW)
+			{
+				growl_urgency = -2;
+			}
+			else if(urgency == URGENCY_NORMAL)
+			{
+				growl_urgency = 0;
+			}
+			else if(urgency == URGENCY_CRITICAL)
+			{
+				growl_urgency = 2;
+			}
+			else
+			{
+				g_warning("urgency hint is not in allowed range 0-2");
+			}
+			
+			NSNumber* num = [NSNumber numberWithInt: growl_urgency];
+			[dictionary setObject: [num autorelease]  forKey:GROWL_NOTIFICATION_PRIORITY];
+		}
+		else
+		{
+			g_warning("urgency hint is not a byte");
+		}
+	}	// }}}
+
 	
 	if(wantsActionCallback)
 	{
@@ -595,8 +645,12 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 	// want to be notifed anyway !
 	NSNumber* num = [NSNumber numberWithInt: return_id];
 	[dictionary setObject: [num autorelease]  forKey:GROWL_NOTIFICATION_CLICK_CONTEXT];
-	
-	
+
+	// TODO: maybe better to use pid instead of MY_APP_ID ?
+	// like this: int pid = [[NSProcessInfo processInfo] processIdentifier];
+	NSString* identifier = [NSString stringWithFormat:@"%@.%u",MY_APP_ID,return_id];
+	NSLog(identifier);
+	[dictionary setObject: identifier  forKey:GROWL_NOTIFICATION_IDENTIFIER];
 	
 	[GrowlApplicationBridge notifyWithDictionary: dictionary];
 	
@@ -666,9 +720,6 @@ void print( NSDictionary *map ) {
     }
 }
 
-#define MY_APP_NAME	XSTR("ObjcServer")
-#define MY_APP_ID	XSTR("N2GR")
-
 @implementation GrowlController
 
 
@@ -697,10 +748,6 @@ void print( NSDictionary *map ) {
 	guint idnum = [clickContext unsignedIntValue];
 	printf("Notification %u timeout\n",idnum);
 	_close_notification(mydaemon, idnum, NOTIFYD_CLOSED_EXPIRED);
-}
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender{
-	NSLog(@"should terminate !");
-	return NSTerminateNow;
 }
 
 @end
