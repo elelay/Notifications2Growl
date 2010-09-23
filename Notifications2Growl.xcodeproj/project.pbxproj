@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0504A17124B4716009EB1D5 /* Notifications2Growl.m in Sources */ = {isa = PBXBuildFile; fileRef = C0504A14124B4716009EB1D5 /* Notifications2Growl.m */; };
+		C09A6F8F12492B30002E12B5 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C0BA6A55124612F00061966A /* Growl.framework */; };
+		C09A712E124B3A50002E12B5 /* Growl_debug.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */; };
+		C09A713D124B3A9B002E12B5 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BA6A55124612F00061966A /* Growl.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C09A6F8712492AEC002E12B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C09A712E124B3A50002E12B5 /* Growl_debug.framework in CopyFiles */,
+				C09A6F8F12492B30002E12B5 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		C000F4B7124646AB00525984 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		C000F5561246A1ED00525984 /* com.github.elelay.notifications2growl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = com.github.elelay.notifications2growl.plist; path = resources/com.github.elelay.notifications2growl.plist; sourceTree = "<group>"; };
+		C0504A12124B4716009EB1D5 /* notificationdaemon-dbus-glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "notificationdaemon-dbus-glue.h"; path = "src/notificationdaemon-dbus-glue.h"; sourceTree = "<group>"; };
+		C0504A13124B4716009EB1D5 /* Notifications2Growl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications2Growl.h; path = src/Notifications2Growl.h; sourceTree = "<group>"; };
+		C0504A14124B4716009EB1D5 /* Notifications2Growl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications2Growl.m; path = src/Notifications2Growl.m; sourceTree = "<group>"; };
+		C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Notifications2Growl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09A6ED2124927FE002E12B5 /* Notifications2Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Notifications2Growl-Info.plist"; path = "resources/Notifications2Growl-Info.plist"; sourceTree = "<group>"; };
+		C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl_debug.framework; path = frameworks/Growl_debug.framework; sourceTree = "<group>"; };
+		C09A71AE124B424D002E12B5 /* notificationdaemon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = notificationdaemon.xml; path = src/notificationdaemon.xml; sourceTree = "<group>"; };
+		C0BA6A55124612F00061966A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = frameworks/Growl.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C09A6ECE124927FE002E12B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09A713D124B3A9B002E12B5 /* Growl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* ObjcServer */ = {
+			isa = PBXGroup;
+			children = (
+				C0504A12124B4716009EB1D5 /* notificationdaemon-dbus-glue.h */,
+				C0504A13124B4716009EB1D5 /* Notifications2Growl.h */,
+				C0504A14124B4716009EB1D5 /* Notifications2Growl.m */,
+				C09A7024124B36B7002E12B5 /* Resources */,
+				C09A7002124B3680002E12B5 /* Frameworks */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = ObjcServer;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C000F4B7124646AB00525984 /* AppKit.framework */,
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C09A7002124B3680002E12B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */,
+				C0BA6A55124612F00061966A /* Growl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C09A7024124B36B7002E12B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C09A71AE124B424D002E12B5 /* notificationdaemon.xml */,
+				C000F5561246A1ED00525984 /* com.github.elelay.notifications2growl.plist */,
+				C09A6ED2124927FE002E12B5 /* Notifications2Growl-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C09A6ECF124927FE002E12B5 /* Notifications2Growl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C09A6ED312492800002E12B5 /* Build configuration list for PBXNativeTarget "Notifications2Growl" */;
+			buildPhases = (
+				C09A6ECC124927FE002E12B5 /* Resources */,
+				C09A6ECD124927FE002E12B5 /* Sources */,
+				C09A6ECE124927FE002E12B5 /* Frameworks */,
+				C09A6F8712492AEC002E12B5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notifications2Growl;
+			productName = Notifications2Growl.app;
+			productReference = C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "Notifications2Growl" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* ObjcServer */;
+			projectDirPath = "";
+			targets = (
+				C09A6ECF124927FE002E12B5 /* Notifications2Growl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C09A6ECC124927FE002E12B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C09A6ECD124927FE002E12B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0504A17124B4716009EB1D5 /* Notifications2Growl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+		C09A6ED412492800002E12B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/opt/local/include/gtk-2.0",
+					"/opt/local/lib/gtk-2.0/include",
+					"/opt/local/include/atk-1.0",
+					/opt/local/include/cairo,
+					"/opt/local/include/pango-1.0",
+					"/opt/local/include/dbus-1.0",
+					"/opt/local/include/dbus-1.0/include",
+					"/opt/local/include/glib-2.0",
+					"/opt/local/lib/glib-2.0/include",
+					/opt/local/include,
+					"/opt/local/lib/dbus-1.0/include",
+				);
+				INFOPLIST_FILE = "resources/Notifications2Growl-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = /opt/local/library;
+				OTHER_CFLAGS = "-D_REENTRANT";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-Wl,-framework,CoreServices",
+					"-Wl,-framework,ApplicationServices",
+					"-L/opt/local/lib",
+					"-lgtk-quartz-2.0",
+					"-lgdk-quartz-2.0",
+					"-latk-1.0",
+					"-lgio-2.0",
+					"-lgdk_pixbuf-2.0",
+					"-lpangocairo-1.0",
+					"-lpangoft2-1.0",
+					"-lpango-1.0",
+					"-lm",
+					"-lcairo",
+					"-lpixman-1",
+					"-lfontconfig",
+					"-lexpat",
+					"-lfreetype",
+					"-lpng12",
+					"-lz",
+					"-lgobject-2.0",
+					"-lgmodule-2.0",
+					"-lgthread-2.0",
+					"-ldbus-glib-1",
+					"-ldbus-1",
+					"-lpthread",
+					"-lgobject-2.0",
+					"-lgthread-2.0",
+					"-lglib-2.0",
+					"-lintl",
+					"-liconv",
+				);
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = Notifications2Growl;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C09A6ED512492800002E12B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/frameworks\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/opt/local/include/gtk-2.0",
+					"/opt/local/lib/gtk-2.0/include",
+					"/opt/local/include/atk-1.0",
+					/opt/local/include/cairo,
+					"/opt/local/include/pango-1.0",
+					"/opt/local/include/dbus-1.0",
+					"/opt/local/include/dbus-1.0/include",
+					"/opt/local/include/glib-2.0",
+					"/opt/local/lib/glib-2.0/include",
+					/opt/local/include,
+					"/opt/local/lib/dbus-1.0/include",
+				);
+				INFOPLIST_FILE = "resources/Notifications2Growl-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = /opt/local/library;
+				OTHER_CFLAGS = "-D_REENTRANT";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-Wl,-framework,CoreServices",
+					"-Wl,-framework,ApplicationServices",
+					"-L/opt/local/lib",
+					"-lgtk-quartz-2.0",
+					"-lgdk-quartz-2.0",
+					"-latk-1.0",
+					"-lgio-2.0",
+					"-lgdk_pixbuf-2.0",
+					"-lpangocairo-1.0",
+					"-lpangoft2-1.0",
+					"-lpango-1.0",
+					"-lm",
+					"-lcairo",
+					"-lpixman-1",
+					"-lfontconfig",
+					"-lexpat",
+					"-lfreetype",
+					"-lpng12",
+					"-lz",
+					"-lgobject-2.0",
+					"-lgmodule-2.0",
+					"-lgthread-2.0",
+					"-ldbus-glib-1",
+					"-ldbus-1",
+					"-lpthread",
+					"-lgobject-2.0",
+					"-lgthread-2.0",
+					"-lglib-2.0",
+					"-lintl",
+					"-liconv",
+				);
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = Notifications2Growl;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "Notifications2Growl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C09A6ED312492800002E12B5 /* Build configuration list for PBXNativeTarget "Notifications2Growl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09A6ED412492800002E12B5 /* Debug */,
+				C09A6ED512492800002E12B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
