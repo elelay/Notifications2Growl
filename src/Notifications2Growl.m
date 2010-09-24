@@ -276,31 +276,30 @@ NSData* getImageData(const gchar *icon,
 				pixbuf = gdk_pixbuf_new_from_file(icon, NULL);
 			}
 		}
-
-		if (pixbuf != NULL)
+	}
+	if (pixbuf != NULL)
+	{
+		gchar* buffer = NULL;
+		gsize buffer_size = 0;
+		GError* error = NULL;
+		if(gdk_pixbuf_save_to_bufferv(pixbuf,
+										 &buffer,
+										 &buffer_size,
+										 "png",
+										 NULL,
+										 NULL,
+										 &error))
 		{
-			gchar* buffer = NULL;
-			gsize buffer_size = 0;
-			GError* error = NULL;
-			if(gdk_pixbuf_save_to_bufferv(pixbuf,
-                                             &buffer,
-                                             &buffer_size,
-                                             "png",
-                                             NULL,
-                                             NULL,
-                                             &error))
-            {
-            	// FIXME: not too sure about type conversion between gsize and NS(U)Integer...
-            	imgData = [NSData dataWithBytes:buffer length:buffer_size];
-            	free(buffer);
-            }
-            else
-            {
-            	printf("gdk_pixbuf_save_to_bufferv error: %s %i %s\n",g_quark_to_string(error->domain),error->code,error->message);
-            	free(error);
-            }
-			g_object_unref(G_OBJECT(pixbuf));
+			// FIXME: not too sure about type conversion between gsize and NS(U)Integer...
+			imgData = [NSData dataWithBytes:buffer length:buffer_size];
+			free(buffer);
 		}
+		else
+		{
+			printf("gdk_pixbuf_save_to_bufferv error: %s %i %s\n",g_quark_to_string(error->domain),error->code,error->message);
+			free(error);
+		}
+		g_object_unref(G_OBJECT(pixbuf));
 	}
 	return imgData;
 }
