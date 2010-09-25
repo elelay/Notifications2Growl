@@ -120,7 +120,7 @@
 					16,
 					200,
 					50,
-					105,
+					105.2085,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXSymbolsDataSource_SymbolTypeIconID,
@@ -175,8 +175,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 306923966;
-			PBXWorkspaceStateSaveDate = 306923966;
+			PBXPerProjectTemplateStateSaveDate = 307037099;
+			PBXWorkspaceStateSaveDate = 307037099;
+		};
+		perUserProjectItems = {
+			C02647AB124BD92500712B86 = C02647AB124BD92500712B86 /* PBXBookmark */;
+			C0264825124BE92800712B86 = C0264825124BE92800712B86 /* PBXTextBookmark */;
 		};
 		sourceControlManager = C02F7AE3124508C700BF5BA0 /* Source Control */;
 		userBuildSettings = {
@@ -196,6 +200,20 @@
 			sepNavWindowFrame = "{{15, -1}, {750, 742}}";
 		};
 	};
+	C02647AB124BD92500712B86 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = C0504A14124B4716009EB1D5 /* Notifications2Growl.m */;
+	};
+	C0264825124BE92800712B86 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C0504A14124B4716009EB1D5 /* Notifications2Growl.m */;
+		name = "Notifications2Growl.m: identifier";
+		rLen = 0;
+		rLoc = 15763;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 15282;
+	};
 	C02F7AE3124508C700BF5BA0 /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
@@ -210,9 +228,10 @@
 	};
 	C0504A14124B4716009EB1D5 /* Notifications2Growl.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {983, 11018}}";
-			sepNavSelRange = "{1070, 24}";
-			sepNavVisRect = "{{0, 0}, {983, 372}}";
+			sepNavIntBoundsRect = "{{0, 0}, {782, 11662}}";
+			sepNavSelRange = "{8152, 0}";
+			sepNavVisRect = "{{0, 3901}, {711, 613}}";
+			sepNavWindowFrame = "{{15, 3}, {750, 742}}";
 		};
 	};
 	C09A6ECF124927FE002E12B5 /* Notifications2Growl */ = {
@@ -242,8 +261,12 @@
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
 		name = Notifications2Growl;
+		savedGlobals = {
+		};
 		sourceDirectories = (
 		);
+		variableFormatDictionary = {
+		};
 	};
 	C09A6ED2124927FE002E12B5 /* Notifications2Growl-Info.plist */ = {
 		uiCtxt = {
