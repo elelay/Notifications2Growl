@@ -24,5 +24,7 @@
 	<string>0.1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>(C) 2010 Eric Le Lay</string>
+	<key>LSUIElement</key>
+	<string>1</string>
 </dict>
 </plist>
