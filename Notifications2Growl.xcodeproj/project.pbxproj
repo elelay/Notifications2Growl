@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02647D6124BD99300712B86 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BA6A55124612F00061966A /* Growl.framework */; };
 		C0504A17124B4716009EB1D5 /* Notifications2Growl.m in Sources */ = {isa = PBXBuildFile; fileRef = C0504A14124B4716009EB1D5 /* Notifications2Growl.m */; };
 		C09A6F8F12492B30002E12B5 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C0BA6A55124612F00061966A /* Growl.framework */; };
-		C09A712E124B3A50002E12B5 /* Growl_debug.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */; };
-		C09A713D124B3A9B002E12B5 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BA6A55124612F00061966A /* Growl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,7 +19,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C09A712E124B3A50002E12B5 /* Growl_debug.framework in CopyFiles */,
 				C09A6F8F12492B30002E12B5 /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,9 +32,8 @@
 		C0504A12124B4716009EB1D5 /* notificationdaemon-dbus-glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "notificationdaemon-dbus-glue.h"; path = "src/notificationdaemon-dbus-glue.h"; sourceTree = "<group>"; };
 		C0504A13124B4716009EB1D5 /* Notifications2Growl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications2Growl.h; path = src/Notifications2Growl.h; sourceTree = "<group>"; };
 		C0504A14124B4716009EB1D5 /* Notifications2Growl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications2Growl.m; path = src/Notifications2Growl.m; sourceTree = "<group>"; };
-		C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Notifications2Growl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifications2Growl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A6ED2124927FE002E12B5 /* Notifications2Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Notifications2Growl-Info.plist"; path = "resources/Notifications2Growl-Info.plist"; sourceTree = "<group>"; };
-		C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl_debug.framework; path = frameworks/Growl_debug.framework; sourceTree = "<group>"; };
 		C09A71AE124B424D002E12B5 /* notificationdaemon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = notificationdaemon.xml; path = src/notificationdaemon.xml; sourceTree = "<group>"; };
 		C0BA6A55124612F00061966A /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = frameworks/Growl.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09A713D124B3A9B002E12B5 /* Growl.framework in Frameworks */,
+				C02647D6124BD99300712B86 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +84,6 @@
 		C09A7002124B3680002E12B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C09A6FAA12492CD2002E12B5 /* Growl_debug.framework */,
 				C0BA6A55124612F00061966A /* Growl.framework */,
 			);
 			name = Frameworks;
@@ -188,8 +184,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -264,8 +262,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

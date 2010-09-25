@@ -16,8 +16,20 @@ It provides a framework to post notifications, which is used by this project.
 Notifications2Growl takes the shape of a daemon ideally launched upon session startup,
 transparently forwarding notifications for linux apps (tested with gPodder).
 
+Limitations
+===========
+
+Multiple actions in notifications are not supported.
+Only the default action is invoked when the user clicks on the notification.
+
+There is no distinction between the user dismissing the notification
+(should send a cancelled signal) and a display timeout (should send
+a timeout signal). Both are reported as timeout.
+
+Text styling is not supported (<b>, <u>, <a>).
+
 Terms of use
-=========
+============
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -71,7 +83,7 @@ The XCode project links with libraries installed via MacPorts
 
 I provide the growl application bridge framework from Growl SDK alongside the source.
 The complete SDK, including sources, is available from [http://growl.info/files/archive/].
-I've chosen version 1.1.6 of the SDK because it's the last version of Growl compatible with Tiger.
+I've chosen version 1.2.1 of the SDK because it compiles on Tiger and Snow Leopard.
 
 
 How to report bugs & send patches
