@@ -1,7 +1,8 @@
 /* Notifications2Growl.m - Implementation of the destop notification spec for Growl
  *
- * Copyright (C) 2010 Eric Le Lay <elelay@macports.org>
- * adapted from notification-daemon-0.4.0/src/daemon/daemon.c
+ * Copyright (C) 2010-2011 Eric Le Lay <elelay@macports.org>
+ * adapted from notification-daemon-0.5.0/src/daemon/daemon.c
+ * Copyright (C) 2010 Red Hat, Inc.
  * Copyright (C) 2006 Christian Hammond <chipx86@chipx86.com>
  * Copyright (C) 2005 John (J5) Palmieri <johnp@redhat.com>
  *
@@ -41,6 +42,8 @@
 #define MY_APP_NAME	XSTR("ObjcServer")
 #define MY_APP_ID	XSTR("N2GR")
 #define MY_NOTIFICATION XSTR("forwarded notification")
+#define NOTIFICATION_BUS_NAME      "org.freedesktop.Notifications"
+#define NOTIFICATION_BUS_PATH      "/org/freedesktop/Notifications"
 
 // {{{ get icon data
 #define IMAGE_SIZE 48
@@ -391,8 +394,8 @@ create_signal(NotifyTimeout* nt, const char *signal_name)
 
 	g_assert(dest != NULL);
 
-	message = dbus_message_new_signal("/org/freedesktop/Notifications",
-									  "org.freedesktop.Notifications",
+	message = dbus_message_new_signal(NOTIFICATION_BUS_PATH,
+									  NOTIFICATION_BUS_NAME,
 									  signal_name);
 
 	dbus_message_set_destination(message, dest);
@@ -597,9 +600,9 @@ notify_daemon_notify_handler(NotifyDaemon *daemon,
 	value = (GValue *)g_hash_table_lookup(hints, "urgency");
 	if (value)
 	{
-		if(G_VALUE_HOLDS(value, G_TYPE_CHAR))
+		if(G_VALUE_HOLDS_UCHAR(value))
 		{
-			char urgency = g_value_get_char(value);
+			guchar urgency = g_value_get_uchar(value);
 			char growl_urgency = 0;
 			if(urgency == URGENCY_LOW)
 			{
@@ -760,6 +763,7 @@ int main (int argc, char * argv[]) {
 	DBusGProxy *bus_proxy;
 	GError *error;
 	guint request_name_result;
+	gboolean res;
 	
 	DBusError error2;
 
@@ -803,28 +807,42 @@ int main (int argc, char * argv[]) {
 										  "/org/freedesktop/DBus",
 										  "org.freedesktop.DBus");
 
-	if (!dbus_g_proxy_call(bus_proxy, "RequestName", &error,
-						   G_TYPE_STRING, "org.freedesktop.Notifications",
-						   G_TYPE_UINT, 0,
-						   G_TYPE_INVALID,
-						   G_TYPE_UINT, &request_name_result,
-						   G_TYPE_INVALID))
-	{
-		g_error("Could not aquire name: %s", error->message);
-	}
+	res = dbus_g_proxy_call (bus_proxy,
+								"RequestName",
+								&error,
+								G_TYPE_STRING, NOTIFICATION_BUS_NAME,
+								G_TYPE_UINT, 0,
+								G_TYPE_INVALID,
+								G_TYPE_UINT, &request_name_result,
+								G_TYPE_INVALID);
+	if (res
+		&& request_name_result == DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER) {
 
-	mydaemon = (NotifyDaemon*) g_object_new(NOTIFY_TYPE_DAEMON, NULL);
+		mydaemon = (NotifyDaemon*) g_object_new(NOTIFY_TYPE_DAEMON, NULL);
 
-	dbus_g_connection_register_g_object(connection,
-										"/org/freedesktop/Notifications",
-										G_OBJECT(mydaemon));
+		dbus_g_connection_register_g_object(connection,
+											NOTIFICATION_BUS_PATH,
+											G_OBJECT(mydaemon));
 	// }}}
 	
-	// {{{ run main loop
-	// running the gtk main loop makes the callbacks available
-	// but it adds the application to the doc !
-	gtk_main();
-	// }}}
+		// {{{ run main loop
+		// running the gtk main loop makes the callbacks available
+		// but it adds the application to the dock !
+		gtk_main();
+		// }}}
+
+		
+	} else {
+		if (error != NULL) {
+			g_warning ("Failed to acquire name %s: %s",
+						NOTIFICATION_BUS_NAME,
+						error->message);
+			g_error_free (error);
+		} else {
+			g_warning ("Failed to acquire name %s", NOTIFICATION_BUS_NAME);
+		}
+	}
+
 	
 	// release resources
     [pool release];
