@@ -50,7 +50,6 @@
 		C0504A12124B4716009EB1D5 /* notificationdaemon-dbus-glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "notificationdaemon-dbus-glue.h"; path = "src/notificationdaemon-dbus-glue.h"; sourceTree = "<group>"; };
 		C0504A13124B4716009EB1D5 /* Notifications2Growl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications2Growl.h; path = src/Notifications2Growl.h; sourceTree = "<group>"; };
 		C0504A14124B4716009EB1D5 /* Notifications2Growl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications2Growl.m; path = src/Notifications2Growl.m; sourceTree = "<group>"; };
-		C08260ED1319649700AC2F08 /* Nots2Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Nots2Growl-Info.plist"; sourceTree = "<group>"; };
 		C09A6ED0124927FE002E12B5 /* Notifications2Growl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifications2Growl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A6ED2124927FE002E12B5 /* Notifications2Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Notifications2Growl-Info.plist"; path = "resources/Notifications2Growl-Info.plist"; sourceTree = "<group>"; };
 		C09A71AE124B424D002E12B5 /* notificationdaemon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = notificationdaemon.xml; path = src/notificationdaemon.xml; sourceTree = "<group>"; };
@@ -78,7 +77,6 @@
 				C09A7024124B36B7002E12B5 /* Resources */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-				C08260ED1319649700AC2F08 /* Nots2Growl-Info.plist */,
 			);
 			name = ObjcServer;
 			sourceTree = "<group>";
