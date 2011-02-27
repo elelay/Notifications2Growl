@@ -1,0 +1,6 @@
+build
+Notifications2Growl.xcodeproj/*.mode1
+Notifications2Growl.xcodeproj/*.pbxuser
+*~
+Growl/Growl.xcodeproj/*.mode1
+Growl/Growl.xcodeproj/*.pbxuser
